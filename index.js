@@ -5,12 +5,12 @@ function newImage(url){
     return image
 }
 
-function move(image){
-    image.style.position = 'fixed'
+function move(element){
+    element.style.position = 'fixed'
     
     function moveToCoordinates(left, bottom){
-        image.style.left = left + 'px'
-        image.style.bottom = bottom + 'px'
+        element.style.left = left + 'px'
+        element.style.bottom = bottom + 'px'
     }
 
     return {
@@ -42,10 +42,7 @@ newItem('assets/shield.png', 165, 335)
 newItem('assets/staff.png', 600, 250)
 
 function newInventory(){
-    let inventory = document.createElement('div')
-    inventory.style.position = 'fixed'
-    inventory.style.bottom = '0px';
-    inventory.style.left = '0px'
+    let inventory = document.createElement('div')       
     inventory.style.width = '100%'
     inventory.style.height = '100px'
     inventory.style.display = 'flex'
@@ -53,9 +50,10 @@ function newInventory(){
     inventory.style.alignItems = 'center'
     inventory.style.justifyContent = 'space-evenly'
     inventory.style.border = '2px solid black'
-    inventory.style.backgroundColor = 'brown'
-    document.body.append(inventory)
+    inventory.style.backgroundColor = 'brown'    
+    document.body.append(inventory)    
     return inventory
 }
 
 const inventory = newInventory()
+move(inventory).to(0,0);
